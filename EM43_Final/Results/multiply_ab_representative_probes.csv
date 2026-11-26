@@ -1,0 +1,8 @@
+a,b,expected,predicted,valid,correct,halt_time,n_extensions
+9,9,81,62,True,False,69,2
+9,12,108,62,True,False,69,2
+10,15,150,60,True,False,67,2
+14,20,280,78,True,False,85,3
+20,25,500,110,True,False,117,4
+25,30,750,142,True,False,149,5
+30,30,900,160,True,False,167,6

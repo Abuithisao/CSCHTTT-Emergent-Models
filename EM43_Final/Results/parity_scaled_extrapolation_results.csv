@@ -1,0 +1,3 @@
+run,accuracy,valid_fraction,test_mae_valid_only,n_correct,n_total,n_wrong_or_invalid,mean_halt_time_valid,genome_file
+1,1.0,1.0,0.0,970,970,0,1042.0,best_em43_parity_scaled_run_001.npz
+2,1.0,1.0,0.0,970,970,0,915.6659793814433,best_em43_parity_scaled_run_002.npz
