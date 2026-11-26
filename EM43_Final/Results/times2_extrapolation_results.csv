@@ -1,0 +1,9 @@
+run,Lp,best_gen,saved_fit,saved_mae,accuracy,valid_fraction,test_mae,all_correct,n_wrong,genome_file
+1,10,51,-0.0003000000142492354,0.0,1.0,1.0,0.0,True,0,best_em43_times2_run_001.npz
+2,10,36,-0.0003000000142492354,0.0,1.0,1.0,0.0,True,0,best_em43_times2_run_002.npz
+3,10,38,-0.0003000000142492354,0.0,1.0,1.0,0.0,True,0,best_em43_times2_run_003.npz
+4,10,32,-0.0003000000142492354,0.0,1.0,1.0,0.0,True,0,best_em43_times2_run_004.npz
+5,10,28,-0.0003000000142492354,0.0,1.0,1.0,0.0,True,0,best_em43_times2_run_005.npz
+6,10,40,-0.0003000000142492354,0.0,1.0,1.0,0.0,True,0,best_em43_times2_run_006.npz
+7,10,48,-0.0003000000142492354,0.0,1.0,1.0,0.0,True,0,best_em43_times2_run_007.npz
+8,10,30,-0.0003000000142492354,0.0,1.0,1.0,0.0,True,0,best_em43_times2_run_008.npz

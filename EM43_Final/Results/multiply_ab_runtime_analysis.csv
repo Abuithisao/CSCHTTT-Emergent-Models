@@ -1,0 +1,5 @@
+task,run,a,b,expected,predicted,valid,correct,halt_time,extensions,runtime_median_sec
+multiply_ab,1,9,9,81,62,True,False,69,2,0.008136549999960607
+multiply_ab,1,10,15,150,60,True,False,67,2,0.002504619999967872
+multiply_ab,1,20,25,500,110,True,False,117,4,0.004830192999975225
+multiply_ab,1,30,30,900,160,True,False,167,6,0.007409805000008873

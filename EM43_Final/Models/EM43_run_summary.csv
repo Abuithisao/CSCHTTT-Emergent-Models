@@ -1,0 +1,7 @@
+﻿order,task_alias,function,training_runs,configured_generations,program_length_Lp,parameter_count_LUT_plus_program,test_set,test_examples_per_run,mean_exact_match_accuracy,min_run_accuracy,max_run_accuracy,mean_valid_fraction,mean_test_MAE_valid_only,result_source_csv,notes
+01,plus1,y = x + 1,8,20,10,70,x = 31..1000 (extrapolation),970,1.000000,1.000000,1.000000,1.000000,,plus1_extrapolation_results.csv,8/8 runs đạt exact-match 100%; test gồm 970 đầu vào mỗi run.
+02,times2,y = 2x,8,90,10,70,x = 31..1000 (extrapolation),970,1.000000,1.000000,1.000000,1.000000,0.000000,times2_extrapolation_results.csv,8/8 runs đạt exact-match 100%; test gồm 970 đầu vào mỗi run.
+03,round_div3,y = round(x/3),8,400,10,70,x = 31..1000 (extrapolation),970,1.000000,1.000000,1.000000,1.000000,0.000000,round_div3_extrapolation_results.csv,8/8 runs đạt exact-match 100%; test gồm 970 đầu vào mỗi run.
+04,mod4,y = x mod 4,8,150,10,70,x = 31..1000 (extrapolation),970,1.000000,1.000000,1.000000,1.000000,0.000000,mod4_extrapolation_results.csv,8/8 runs đạt exact-match 100%; test gồm 970 đầu vào mỗi run.
+05,parity_scaled,y = x * (1 + x mod 2),2,500,10,70,x = 31..1000 (extrapolation),970,1.000000,1.000000,1.000000,1.000000,0.000000,parity_scaled_extrapolation_results.csv,2/2 runs đạt exact-match 100%; test gồm 970 đầu vào mỗi run.
+06,multiply_ab,y = a * b,2,800,50,110,representative_7_pair_probe,7,0.000000,0.000000,0.000000,1.000000,304.642857,multiply_ab_extrapolation_results.csv,Chỉ có 7 cặp probe; 0/7 đúng ở mỗi run. Không so sánh trực tiếp với test set của paper.
