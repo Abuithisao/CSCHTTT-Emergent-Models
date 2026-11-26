@@ -1,0 +1,107 @@
+{
+  "controller": {
+    "type": "linear threshold policy",
+    "parameters": [
+      "w_x",
+      "w_x_dot",
+      "w_theta",
+      "w_theta_dot"
+    ],
+    "parameter_count": 4,
+    "action_rule": "score = dot(weights, normalized_observation); score >= 0 selects right, otherwise left",
+    "retained_internal_state": false
+  },
+  "environment": {
+    "name": "CartPole with standard classic-control dynamics",
+    "integration": "Euler",
+    "g": 9.8,
+    "masscart": 1.0,
+    "masspole": 0.1,
+    "half_pole_length": 0.5,
+    "time_step_seconds": 0.02,
+    "max_steps_per_episode": 800,
+    "position_threshold": 2.4,
+    "pole_angle_threshold_radians": 0.20943951023931953,
+    "pole_angle_threshold_degrees": 12.0,
+    "reset_distribution": {
+      "type": "boundary_mixture",
+      "boundary_probability": 0.7,
+      "boundary_position_abs_range": [
+        1.8,
+        2.2
+      ],
+      "center_position_abs_range": [
+        0.0,
+        1.5
+      ],
+      "velocity_abs_range": 0.1,
+      "pole_angle_abs_range": 0.1,
+      "angular_velocity_abs_range": 0.1
+    }
+  },
+  "action_space": {
+    "type": "Discrete(2)",
+    "actions": {
+      "0": "left force -10.0",
+      "1": "right force +10.0"
+    }
+  },
+  "observation": {
+    "variables": [
+      "x",
+      "x_dot",
+      "theta",
+      "theta_dot"
+    ],
+    "normalization_divisors": [
+      1.0,
+      2.0,
+      0.13962634015954636,
+      3.0
+    ],
+    "clip": [
+      -4.0,
+      4.0
+    ]
+  },
+  "reward": {
+    "per_valid_step": 1.0,
+    "definition": "One point for each executed CartPole step, including the terminating step.",
+    "maximum_per_episode": 800,
+    "fitness": "mean_return / (1 + 0.06 * std_return)"
+  },
+  "termination": {
+    "cart_position": "abs(x) > 2.4",
+    "pole_angle": "abs(theta) > 0.20943951023931953 radians",
+    "non_finite_state": true,
+    "time_limit": 800
+  },
+  "seed": {
+    "environment": 0,
+    "genetic_algorithm": 1,
+    "final_evaluation": 2
+  },
+  "training": {
+    "population_size": 120,
+    "generations": 70,
+    "episodes_per_generation": 100,
+    "total_training_episodes": 7000,
+    "evaluation_episodes": 200,
+    "automaton_L_T": "not applicable to a 4-parameter linear controller",
+    "completed_generations": 70
+  },
+  "evaluation_result": {
+    "episodes": 200,
+    "mean_return": 800.0,
+    "std_return": 0.0,
+    "best_return": 800.0,
+    "min_return": 800.0,
+    "fitness": 800.0,
+    "weights": [
+      0.2895078659057617,
+      1.1253693103790283,
+      3.2541253566741943,
+      3.485941171646118
+    ]
+  }
+}

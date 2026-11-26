@@ -1,0 +1,106 @@
+{
+  "environment": {
+    "name": "CartPole (standard Euler dynamics, Barto et al.)",
+    "g": 9.8,
+    "masscart": 1.0,
+    "masspole": 0.1,
+    "half_pole_length": 0.5,
+    "tau": 0.02,
+    "max_steps_per_episode": 800,
+    "init_mode": "boundary_mixture",
+    "boundary_prob": 0.7,
+    "boundary_x_range": [
+      1.8,
+      2.2
+    ],
+    "center_x_range": 1.5,
+    "init_dx_range": 0.1,
+    "init_theta_range": 0.1,
+    "init_dtheta_range": 0.1
+  },
+  "action_space": {
+    "type": "Discrete(2)",
+    "actions": {
+      "0": "push left, F = -10.0",
+      "1": "push right, F = +10.0"
+    },
+    "decode_rule": "z = s[output_cell=9]; z < -0.05 -> left; z > 0.05 -> right; |z| <= 0.05 -> uniform random action"
+  },
+  "observation": {
+    "variables": [
+      "x",
+      "x_dot",
+      "theta",
+      "theta_dot"
+    ],
+    "input_cells": [
+      3,
+      6,
+      12,
+      15
+    ],
+    "normalization": [
+      1.0,
+      2.0,
+      0.13962634015954636,
+      3.0
+    ],
+    "clip": [
+      -4.0,
+      4.0
+    ]
+  },
+  "reward": {
+    "per_step": 1.0,
+    "definition": "+1 for every valid CartPole step (including the terminating step); invalid CEM1D internal dynamics give no reward and end the episode",
+    "max_return": 800,
+    "fitness": "mean_return / (1 + 0.06 * std_return)"
+  },
+  "termination": {
+    "abs_x_greater_than": 2.4,
+    "abs_theta_greater_than_rad": 0.20943951023931953,
+    "abs_theta_greater_than_deg": 12.0,
+    "non_finite_state": true,
+    "internal_state_invalid": "|s| > 50.0 or non-finite",
+    "truncation_steps": 800
+  },
+  "seed": {
+    "env_rng_seed": 0,
+    "ga_rng_seed": 1
+  },
+  "episodes": {
+    "train_rollouts_per_generation": 100,
+    "generations": 70,
+    "population_size": 120,
+    "eval_rollouts": 200
+  },
+  "cem1d": {
+    "L": 19,
+    "T": 30,
+    "dt": 0.1,
+    "gamma": 0.03,
+    "boundary_mode": "reflect"
+  },
+  "eval_result": {
+    "n_rollouts": 200,
+    "fitness": 81.16212463378906,
+    "mean_return": 749.3200073242188,
+    "std_return": 137.20643615722656,
+    "best_return": 800.0,
+    "min_return": 54.0,
+    "mean_random_action_rate": 0.22655904293060303,
+    "mean_abs_output": 0.14494988322257996,
+    "mean_state_norm": 3.565948724746704,
+    "mean_invalid_rate": 0.0,
+    "finite_rate": 1.0,
+    "mean_internal_steps": 30.0
+  },
+  "selected_genome": {
+    "gen": 70,
+    "a": [
+      0.7789585590362549,
+      -0.29658910632133484,
+      -1.6718199253082275
+    ]
+  }
+}
